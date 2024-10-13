@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Daylight Data for {{ cityName|capitalize }} and {{ cityName2|capitalize }}{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            font-family: 'Arial', sans-serif;
+            height: 100vh; /* Full height for centering */
+            display: flex; /* Flexbox for centering */
+            align-items: flex-start; /* Align items at the top */
+            justify-content: center; /* Center horizontally */
+            margin: 0; /* Remove default margin */
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px; /* Max width for content */
+            margin-top: 50px; /* Space from the top */
+            padding: 20px; /* Padding for overall container */
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center; /* Center align heading */
+        }
+        .lead {
+            text-align: center; /* Center align subtitle */
+            color: #555;
+        }
+        .react-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px; /* Padding for content */
+            height: 600px; /* Increased height for the React app */
+            overflow: hidden; /* Hide overflow for aesthetics */
+        }
+        /* Adjust for better responsiveness */
+        @media (max-width: 768px) {
+            .react-container {
+                height: 400px; /* Reduced height on smaller screens */
+            }
+        }
+    </style>
+
+    <div class="container">
+        <h1>Daylight Data for {{ cityName|capitalize }} and {{ cityName2|capitalize }}</h1>
+        <div class="text-center mb-4">
+            <p class="lead text-muted">Compare the daylight data for the two cities you've entered.</p>
+        </div>
+
+        <div id="react-root" class="react-container" data-city-name="{{ cityName }}" data-city-name2="{{ cityName2 }}">
+            <!-- This is where your React app will be rendered -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+{{ vite_entry_script_tags('/frontend/src/main.jsx') }} <!-- Load the React app -->
+{% endblock %}

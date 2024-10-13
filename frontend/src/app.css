@@ -1,0 +1,25 @@
+/* Custom styling to enhance the app look */
+body {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.card {
+    border-radius: 12px; /* Soft corners */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker on hover */
+}
